@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -10,12 +11,16 @@ export default class SignUpForm extends Component {
     error: ''
   };
 
+  
+
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
       error: ''
     });
   };
+
+  
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -27,6 +32,7 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
+      this.navigate('/mygarden')
     } catch {
       // An error occurred
       // Probably due to a duplicate email
