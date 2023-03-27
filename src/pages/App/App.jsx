@@ -11,6 +11,7 @@ import GrowingPage from '../GrowingPage/GrowingPage';
 export default function App() {
   const [user, setUser] = useState(getUser());
 
+
   return (
     <main className="App">
       
@@ -22,6 +23,7 @@ export default function App() {
               <Route path="/mygarden" element={<MyGardenPage />} />
               <Route path="/growing" element={<GrowingPage />} />
             </Routes>
+            <MyGardenPage />
             </>
             :
             <>

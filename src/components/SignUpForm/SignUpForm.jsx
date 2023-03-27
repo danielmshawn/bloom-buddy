@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {

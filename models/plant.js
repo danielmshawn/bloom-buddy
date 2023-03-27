@@ -33,7 +33,7 @@ const plantSchema = new Schema({
         required: true
     },
     results: {},
-    comments: [commentSchema]
+    // comments: [commentSchema]
 }, {
     timestamps: true
 })
