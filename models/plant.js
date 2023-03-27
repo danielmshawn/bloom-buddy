@@ -24,7 +24,8 @@ const plantSchema = new Schema({
     },
     dateHarvested: [Date],
     endDate: Date,
-    // image: TBD,
+    // Must learn how to integrate AWS S3 for MERN
+    imageUrl: String,
     location: {
         // Address changed to coordinates via Google Maps API Geocoding
         // And then ideally put on map. 
