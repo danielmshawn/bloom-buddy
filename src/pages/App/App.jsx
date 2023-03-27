@@ -23,7 +23,6 @@ export default function App() {
               <Route path="/mygarden" element={<MyGardenPage />} />
               <Route path="/growing" element={<GrowingPage />} />
             </Routes>
-            <MyGardenPage />
             </>
             :
             <>
