@@ -7,6 +7,7 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import NavBar from '../../components/NavBar/NavBar';
 import MyGardenPage from '../MyGardenPage/MyGardenPage';
 import GrowingPage from '../GrowingPage/GrowingPage';
+import PlantDetailPage from '../PlantDetailPage/PlantDetailPage'
 import * as plantsAPI from '../../utilities/plants-api'
 
 export default function App() {
@@ -33,6 +34,10 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/mygarden" element={<MyGardenPage plants={plants} setPlants={setPlants} />} />
               <Route path="/growing" element={<GrowingPage />} />
+              <Route 
+                path="/plants/:plantID"
+                element={<PlantDetailPage plants={plants} />} 
+              />
             </Routes>
             </>
             :

@@ -9,8 +9,8 @@ async function index(req, res) {
     try {
         req.body.user = req.user._id;
         const plants = await Plant.find({user: req.user._id});
-        console.log(plants, "This is our plants");
         res.json(plants);
+        console.log(plants, "This is our plants");
     } catch(err) {
         res.status(400).json(err)
     }

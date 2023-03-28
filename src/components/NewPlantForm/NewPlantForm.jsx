@@ -13,6 +13,7 @@ export default function NewPlantForm({ addPlant, setShowPlantForm }) {
         evt.preventDefault();
         addPlant(newPlant);
         setNewPlant({type:""})
+        // How to make this only if plant submitted is valid, THEN collapse form? 
         setShowPlantForm(false);
     }
 
