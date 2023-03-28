@@ -1,6 +1,10 @@
-export default function PlantCard() {
+export default function PlantCard({ plant, key }) {
 
     return (
-        <h2>Plant Card</h2>
+        <div>
+        <h2>A Plant Card</h2>
+        <h3>{plant.type}</h3>
+        </div>
+
     )
 }

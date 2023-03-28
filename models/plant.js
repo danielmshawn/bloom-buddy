@@ -16,23 +16,23 @@ const plantSchema = new Schema({
         type: String,
         required: true
     },
-    variety: String,
-    seeds: String,
-    datePlanted: {
-        type: Date,
-        required: true
-    },
-    dateHarvested: [Date],
-    endDate: Date,
-    // Must learn how to integrate AWS S3 for MERN
-    imageUrl: String,
-    location: {
-        // Address changed to coordinates via Google Maps API Geocoding
-        // And then ideally put on map. 
-        type: String,
-        required: true
-    },
-    results: {},
+    // variety: String,
+    // seeds: String,
+    // datePlanted: {
+    //     type: Date,
+    //     required: true
+    // },
+    // dateHarvested: [Date],
+    // endDate: Date,
+    // // Must learn how to integrate AWS S3 for MERN
+    // imageUrl: String,
+    // location: {
+    //     // Address changed to coordinates via Google Maps API Geocoding
+    //     // And then ideally put on map. 
+    //     type: String,
+    //     required: true
+    // },
+    // results: {},
     // comments: [commentSchema]
 }, {
     timestamps: true

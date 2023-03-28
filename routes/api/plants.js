@@ -10,4 +10,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 //GET  /api/plants
 router.get('/', ensureLoggedIn, plantsCtrl.index);
 
+// POST /api/plants
+router.post('/', ensureLoggedIn, plantsCtrl.create);
+
 module.exports = router;
