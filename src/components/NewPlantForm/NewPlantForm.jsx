@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function NewPlantForm({ addPlant }) {
+export default function NewPlantForm({ addPlant, setShowPlantForm }) {
 
     const [newPlant, setNewPlant] = useState({
         type: ""
@@ -13,6 +13,7 @@ export default function NewPlantForm({ addPlant }) {
         evt.preventDefault();
         addPlant(newPlant);
         setNewPlant({type:""})
+        setShowPlantForm(false);
     }
 
     function handleChange(evt) {

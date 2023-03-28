@@ -26,7 +26,7 @@ export default function MyGardenPage({ plants, setPlants }) {
       <div>{plantList}</div>
       <button onClick={() => setShowPlantForm(!showPlantForm)}>{showPlantForm ? 'Cancel' : 'Add A Plant' } </button>
       { showPlantForm ?
-       <NewPlantForm  addPlant = {addPlant} />
+       <NewPlantForm  addPlant = {addPlant} setShowPlantForm={setShowPlantForm} />
       :
       <>
       </>

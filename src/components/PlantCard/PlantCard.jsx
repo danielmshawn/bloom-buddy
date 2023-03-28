@@ -1,4 +1,4 @@
-export default function PlantCard({ plant, key }) {
+export default function PlantCard({ plant }) {
 
     return (
         <div>
