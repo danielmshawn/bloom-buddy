@@ -13,6 +13,8 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link to="/mygarden">My Garden</Link>
       &nbsp; | &nbsp;
+      <Link to="/plants/new">Create A Plant</Link>
+      &nbsp; | &nbsp;
       <Link to="/growing">What's Growing?</Link>
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
