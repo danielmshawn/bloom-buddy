@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
@@ -16,7 +17,9 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  userLatitude: String,
+  userLongitude: String,
 }, {
   timestamps: true,
   toJSON: {

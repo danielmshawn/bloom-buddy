@@ -3,7 +3,9 @@ import { useState } from "react"
 export default function NewPlantForm({ addPlant, setShowPlantForm }) {
 
     const [newPlant, setNewPlant] = useState({
-        type: ""
+        // What does this say now? 
+
+        // type: ""
         // datePlanted: null,
         // location: "",
     })
@@ -12,6 +14,7 @@ export default function NewPlantForm({ addPlant, setShowPlantForm }) {
     function handleSubmit(evt) {
         evt.preventDefault();
         addPlant(newPlant);
+        // SO bewlow isn't right anymore? 
         setNewPlant({type:""})
         // How to make this only if plant submitted is valid, THEN collapse form? 
         setShowPlantForm(false);

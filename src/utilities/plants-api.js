@@ -8,3 +8,7 @@ export async function getAllPlants() {
 export async function createPlant(plantData) {
     return sendRequest(BASE_URL, 'POST', plantData);
 }
+
+export async function getAvailablePlants() {
+    return sendRequest(`${BASE_URL}/available`);
+}
