@@ -16,5 +16,7 @@ router.get('/available', ensureLoggedIn, plantsCtrl.available);
 // POST /api/plants
 router.post('/', ensureLoggedIn, plantsCtrl.create);
 
+// POST /api/plants/:id/user
+router.post('/:id/user', ensureLoggedIn, plantsCtrl.addToUser);
 
 module.exports = router;

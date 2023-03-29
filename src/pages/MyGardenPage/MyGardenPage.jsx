@@ -5,10 +5,10 @@ import * as plantsAPI from '../../utilities/plants-api'
 import PlantCard from '../../components/PlantCard/PlantCard'
 
 
-export default function MyGardenPage({ plants, setPlants }) {
+export default function MyGardenPage() {
 
- 
-  const [selectedAvailablePlant, setSelectedAvailablePlant] = useState(null);
+  const [myPlants, setMyPlants] = useState([]);
+  const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
 
   useEffect(function() {
@@ -17,15 +17,20 @@ export default function MyGardenPage({ plants, setPlants }) {
       setAvailablePlants(plants);
     }
     getAvailablePlants();
-  }, [])
+  }, []);
  
   useEffect(function() {
     if (!availablePlants.length) return;
-    setSelectedAvailablePlant(availablePlants[0]._id);
-  }, [availablePlants])
+    setSelectedAvailablePlantId(availablePlants[0]._id);
+  }, [availablePlants]);
   
-  const plantList = plants.map((plant, idx) => (
-    <PlantCard plant={plant} key={idx} />
+  async function addToUser() {
+    const updatedMyPlants =  await plantsAPI.addToUser(selectedAvailablePlantId);
+    setMyPlants(updatedMyPlants);
+  }
+
+  const plantList = myPlants.map((plant) => (
+    <PlantCard userPlant={plant} />
   ));
     
   return (
@@ -33,20 +38,13 @@ export default function MyGardenPage({ plants, setPlants }) {
       <h1>My Garden</h1>
       <div>{plantList}</div>
 
-      <select value={selectedAvailablePlant} onChange={(evt) => setSelectedAvailablePlant(evt.target.value) }  >
+      <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
         { !availablePlants.length && <option value="">-- No Available Plants --</option>}
-        { availablePlants.map(p => <option value={p._id} key={p._id} >{p.name}</option>) }
+        { availablePlants.map(p => <option value={p._id} key={p._id} >{p.name} -- Variety:{p.variety}</option>) }
       </select>
-      <button disabled={!availablePlants.length}>Add Plant to Garden</button>
+      <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
       &nbsp; | &nbsp;
       <Link className="button" to="/plants/new"> Create A New Plant </Link> 
     </>
   );
 }
-
-
-// <NewPlantForm  addPlant = {addPlant} setShowPlantForm={setShowPlantForm} /> 
-// async function addPlant(plant) {
-//   const newPlant = await plantsAPI.createPlant(plant)
-//   setPlants([...plants, newPlant])
-// }
