@@ -1,8 +1,7 @@
 import { useState } from "react"
-import DatePicker from "react-datepicker";
 
 import "./UserPlantForm.css"
-import "react-datepicker/dist/react-datepicker.css";
+
 
 
 
@@ -13,10 +12,10 @@ export default function UserPlantForm({ plant }) {
     return (
         <div className="userPlantForm">
             <h2>UserPlant Form</h2>
-            <form>
+            <form >
                 <div className="plantedDatePicker">
                     <label>Date Planted: </label>
-                    <DatePicker selected={plantedDate} onChange={(date) => setPlantedDate(date)} autoComplete="off"/>
+                    <input type="date" />
                 </div>
                 <label>Seeds: </label>
                 <input type="text" placeholder="Where Did You Get Your Seeds?" />

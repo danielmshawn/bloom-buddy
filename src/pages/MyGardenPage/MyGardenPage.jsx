@@ -10,9 +10,6 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
   const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
 
-  // Index of myPlants needed, yes?
-  
-
   useEffect(function() {
     async function getAvailablePlants() {
       const plants = await plantsAPI.getAvailablePlants();
@@ -48,6 +45,11 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
       <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
       &nbsp; | &nbsp;
       <Link className="button" to="/plants/new"> Create A New Plant </Link> 
+      <hr></hr>
+      <hr></hr>
+      <hr></hr>
+      <iframe width="600" height="450" style={{border: "0"}} loading="lazy" allowFullScreen
+src="https://www.google.com/maps/embed/v1/place?q=47.6205,+-122.3493&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek"></iframe>
     </>
   );
 }

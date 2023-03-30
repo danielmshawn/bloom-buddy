@@ -21,10 +21,11 @@ export default function PlantDetailPage({ myPlants }) {
             <h3>{plant.plant.variety}</h3>
             <p>Seeds:</p>
             <p>Date Planted: {plant.datePlanted}</p>
+            
             <ul>Date(s) Harvested
-            <li>Dates go here</li>
-            <li>Dates go here</li>
-        </ul>
+                <li>Dates go here</li>
+                <li>Dates go here</li>
+            </ul>
             <HarvestDateForm />
         </div>
 
