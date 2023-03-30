@@ -11,6 +11,10 @@ module.exports = {
 async function create(req, res) {
   try {
     // Add the user to the db
+    if (!req.body.latitude) {
+      delete req.body.latitude;
+      delete req.body.longitude;
+    }
     const user = await User.create(req.body);
     const token = createJWT(user);
     res.json(token);

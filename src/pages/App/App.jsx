@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -18,12 +18,13 @@ export default function App() {
   const [myPlants, setMyPlants] = useState([]);
   
   useEffect(function() {
+    if (!user) return;
     async function getMyPlants() {
       const userPlants = await plantsAPI.getMyPlants();
       setMyPlants(userPlants);
     }
     getMyPlants();
-  }, []);
+  }, [user]);
   
   return (
     <main className="App">
@@ -37,6 +38,7 @@ export default function App() {
               <Route path="/plants/new" element={<NewPlantPage plants={plants} setPlants={setPlants}/>} />
               <Route path="/plants/:userPlantID" element={<PlantDetailPage myPlants={myPlants} />} />
               <Route path="/growing" element={<GrowingPage />} />
+              <Route path="*" element={<Navigate to="/mygarden" />} />
             </Routes>
             </>
             :

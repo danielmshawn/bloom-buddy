@@ -18,8 +18,8 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  userLatitude: String,
-  userLongitude: String,
+  latitude: Number,
+  longitude: Number,
 }, {
   timestamps: true,
   toJSON: {

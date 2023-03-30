@@ -2,6 +2,15 @@ import { Component, useState, useEffect } from 'react';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
+  
+  constructor() {
+    super();
+    navigator.geolocation.getCurrentPosition((result) => {
+      this.latitude = result.coords.latitude;
+      this.longitude = result.coords.longitude;
+    })
+    
+  }
   state = {
     name: '',
     email: '',
@@ -9,8 +18,8 @@ export default class SignUpForm extends Component {
     confirm: '',
     error: ''
   };
-
-  
+  latitude = undefined;
+  longitude = undefined;
 
   // useEffect
     //What the heck do I put here to take this use navigator object
@@ -31,9 +40,10 @@ export default class SignUpForm extends Component {
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
+    console.log(this.latitude, this.longitude)
     try {
       const {name, email, password} = this.state;
-      const formData = {name, email, password};
+      const formData = {name, email, password, latitude: this.latitude, longitude: this.longitude};
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)

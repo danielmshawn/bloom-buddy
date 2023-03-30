@@ -20,7 +20,7 @@ async function index(req, res) {
 async function available(req, res) {
     try {
         const existingIds = await UserPlant.find({user: req.user._id}).select('plant._id')
-        console.log(existingIds);
+        console.log("Existing Ids - ", existingIds);
         const plants = await Plant.find({_id: {$nin: existingIds}});
         res.json(plants);
     } catch(err) {
@@ -31,7 +31,6 @@ async function available(req, res) {
 async function create(req, res) {
     try {
         const newPlant = await Plant.create(req.body);
-        console.log(newPlant, "This is new plant")
         res.json(newPlant);
     } catch(err) {
         res.status(400).json(err)

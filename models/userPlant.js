@@ -25,7 +25,7 @@ const userPlantSchema = new Schema ({
         }
     
     },
-    dateHarvested: [Date],
+    datesHarvested: [Date],
     endDate: Date,
 }, {
     timestamps: true

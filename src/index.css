@@ -97,7 +97,7 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  /* color: var(--text-light); */
+  color: var(--text-light);
   color: black;
 }
 
@@ -159,9 +159,4 @@ button[type="submit"] {
 
 .select {
   padding: 10px;
-}
-
-iframe {
-  border: 1px solid black;
-  width: 100%; /* takes precedence over the width set with the HTML width attribute */
 }
