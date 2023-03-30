@@ -11,6 +11,15 @@ export default function MyGardenPage() {
   const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
 
+  // Index of myPlants needed, yes?
+  useEffect(function() {
+    async function getMyPlants() {
+      const userPlants = await plantsAPI.getMyPlants();
+      setMyPlants(userPlants);
+    }
+    getMyPlants();
+  }, []);
+
   useEffect(function() {
     async function getAvailablePlants() {
       const plants = await plantsAPI.getAvailablePlants();
@@ -27,6 +36,7 @@ export default function MyGardenPage() {
   async function addToUser() {
     const updatedMyPlants =  await plantsAPI.addToUser(selectedAvailablePlantId);
     setMyPlants(updatedMyPlants);
+    console.log("My Plants here:", myPlants);
   }
 
   const plantList = myPlants.map((plant) => (

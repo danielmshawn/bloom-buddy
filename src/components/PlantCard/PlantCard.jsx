@@ -7,7 +7,7 @@ export default function PlantCard({ userPlant }) {
         <div className ="card-grid">
         <div className ="plant-card">
             <Link to={`/plants/${userPlant.id}`} >
-        <h3>{userPlant.type}</h3>
+        <h3>{userPlant.plant.name} </h3>
         </Link>
         </div>
         </div>

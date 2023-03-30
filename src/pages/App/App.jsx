@@ -9,30 +9,12 @@ import MyGardenPage from '../MyGardenPage/MyGardenPage';
 import NewPlantPage from '../NewPlantPage/NewPlantPage'
 import GrowingPage from '../GrowingPage/GrowingPage';
 import PlantDetailPage from '../PlantDetailPage/PlantDetailPage'
-import * as plantsAPI from '../../utilities/plants-api'
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [plants, setPlants] = useState([]);
-
-  // useEffect(function() {
-  //   async function getPlants() {
-  //     const allPlants = await plantsAPI.getAllPlants();
-  //     setPlants(allPlants)
-  //   }
-  //   getPlants();
-  // }, [])
-
-  useEffect(function() {
-    async function getMyPlants() {
-      const myPlants = await plantsAPI.getMyPlants();
-      setPlants(myPlants)
-    }
-    getMyPlants();
-  }, [])
-
   
-
   return (
     <main className="App">
       
