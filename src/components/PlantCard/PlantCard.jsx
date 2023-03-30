@@ -4,13 +4,11 @@ import './PlantCard.css'
 export default function PlantCard({ userPlant }) {
 
     return (
-        <div className ="card-grid">
+    
+            <Link to={`/plants/${userPlant._id}`} >
         <div className ="plant-card">
-            <Link to={`/plants/${userPlant.id}`} >
         <h3>{userPlant.plant.name} </h3>
+        </div>
         </Link>
-        </div>
-        </div>
-
     )
 }

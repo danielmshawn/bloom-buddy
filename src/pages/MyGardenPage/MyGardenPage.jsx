@@ -5,20 +5,13 @@ import * as plantsAPI from '../../utilities/plants-api'
 import PlantCard from '../../components/PlantCard/PlantCard'
 
 
-export default function MyGardenPage() {
+export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
 
-  const [myPlants, setMyPlants] = useState([]);
   const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
 
   // Index of myPlants needed, yes?
-  useEffect(function() {
-    async function getMyPlants() {
-      const userPlants = await plantsAPI.getMyPlants();
-      setMyPlants(userPlants);
-    }
-    getMyPlants();
-  }, []);
+  
 
   useEffect(function() {
     async function getAvailablePlants() {

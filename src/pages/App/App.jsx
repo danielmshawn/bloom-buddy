@@ -9,11 +9,21 @@ import MyGardenPage from '../MyGardenPage/MyGardenPage';
 import NewPlantPage from '../NewPlantPage/NewPlantPage'
 import GrowingPage from '../GrowingPage/GrowingPage';
 import PlantDetailPage from '../PlantDetailPage/PlantDetailPage'
+import * as plantsAPI from '../../utilities/plants-api'
 
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [plants, setPlants] = useState([]);
+  const [myPlants, setMyPlants] = useState([]);
+  
+  useEffect(function() {
+    async function getMyPlants() {
+      const userPlants = await plantsAPI.getMyPlants();
+      setMyPlants(userPlants);
+    }
+    getMyPlants();
+  }, []);
   
   return (
     <main className="App">
@@ -23,9 +33,9 @@ export default function App() {
         <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/mygarden" element={<MyGardenPage />} />
+              <Route path="/mygarden" element={<MyGardenPage myPlants={myPlants} setMyPlants={setMyPlants} />} />
               <Route path="/plants/new" element={<NewPlantPage plants={plants} setPlants={setPlants}/>} />
-              <Route path="/plants/:plantID" element={<PlantDetailPage plants={plants} />} />
+              <Route path="/plants/:userPlantID" element={<PlantDetailPage myPlants={myPlants} />} />
               <Route path="/growing" element={<GrowingPage />} />
             </Routes>
             </>
