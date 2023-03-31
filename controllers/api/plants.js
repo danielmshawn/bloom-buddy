@@ -6,7 +6,7 @@ module.exports = {
     available,
     create,
     addToUser,
-    updateUserPlant
+    // updateUserPlant
 }
 
 async function index(req, res) {
@@ -21,7 +21,7 @@ async function index(req, res) {
 async function available(req, res) {
     try {
         const existingIds = await UserPlant.find({user: req.user._id}).select('plant._id')
-        console.log("Existing Ids - ", existingIds);
+        // console.log("Existing Ids - ", existingIds);
         const plants = await Plant.find({_id: {$nin: existingIds}});
         res.json(plants);
     } catch(err) {
@@ -49,16 +49,16 @@ async function addToUser(req, res) {
     }
 }
 
-async function updateUserPlant(req, res) {
-    try{
-        const updatedUserPlant = await UserPlant.findOneAndUpdate(
-            {_id: req.params.id},
-            req.body,
-            {new: true}
-            );
-            res.json(updatedUserPlant)
-        //Do i need a return redirect here? 
-    } catch(err) {
-        res.status(400).json(err)
-    }
-}
+// async function updateUserPlant(req, res) {
+//     try{
+//         const updatedUserPlant = await UserPlant.findOneAndUpdate(
+//             {_id: req.params.id},
+//             req.body,
+//             {new: true}
+//             );
+//             res.json(updatedUserPlant)
+//         //Do i need a return redirect here? 
+//     } catch(err) {
+//         res.status(400).json(err)
+//     }
+// }

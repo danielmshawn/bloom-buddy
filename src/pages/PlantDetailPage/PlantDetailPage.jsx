@@ -1,10 +1,9 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 
-import * as plantsAPI from '../../utilities/plants-api'
+import * as userPlantsAPI from '../../utilities/userPlants-api'
 
-import HarvestDateForm from "../../components/HarvestDateForm/HarvestDateForm"
-import UserPlantForm from "../../components/UserPlantForm/UserPlantForm"
+import EditPlantForm from "../../components/EditPlantForm/EditPlantForm"
 
 
 
@@ -14,10 +13,18 @@ export default function PlantDetailPage({ myPlants }) {
     const { userPlantID } = useParams();
     const plant = myPlants.find((p) => p._id === userPlantID)
 
-    const [userPlants, setUserPlants] = useState(null);
+    const [showUserPlantForm, setShowUserPlantForm] = useState(false)
+    const [userPlants, setUserPlants] = useState({
+        seeds: "",
+        harvestDate: []
+    });
 
     async function updateUserPlant(userPlantData) {
-        const userPlant = await plantsAPI.updateUserPlant(userPlantData);
+        const updatedData = {
+            seeds: userPlantData.seeds,
+            datesHarvested: userPlantData.datesHarvested
+        }
+        const userPlant = await userPlantsAPI.updateUserPlant(userPlantData._id, updatedData);
         setUserPlants([userPlant]);
       }
 
@@ -34,10 +41,11 @@ export default function PlantDetailPage({ myPlants }) {
                 <li>Dates go here</li>
                 <li>Dates go here</li>
             </ul>
-            <HarvestDateForm plant={plant} />
+            <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
         </div>
-
-        <UserPlantForm plant={plant} updateUserPlant={updateUserPlant}/>
+        { showUserPlantForm && (
+            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} />
+        )}
         
 
 

@@ -7,9 +7,10 @@ import "./UserPlantForm.css"
 
 export default function UserPlantForm({ plant, updateUserPlant }) {
 
+   
     const [userPlantDetails, setUserPlantDetails] = useState({
         seeds: "",
-        datePlanted: plant.datePlanted
+        // What do I put here for datesHarvested?
     })
     
 
@@ -26,12 +27,7 @@ export default function UserPlantForm({ plant, updateUserPlant }) {
     return (
         <div className="userPlantForm">
             <h2>UserPlant Form</h2>
-            <h2>Is the name here? {plant.plant.name}</h2>
             <form onSubmit={ handleSubmit }>
-                {/* <div className="plantedDatePicker">
-                    <label>Date Planted: </label>
-                    <input type="date" name="datePlanted" value={plant.datePlanted} onChange={ handleChange } />
-                </div> */}
                 <label>Seeds: </label>
                 <input
                     type="text"
@@ -40,9 +36,13 @@ export default function UserPlantForm({ plant, updateUserPlant }) {
                     onChange= { handleChange }
                     placeholder="Where Did You Get Your Seeds?"
                 />
+                <label>Harvest Date:</label>
+               <input type="date" />
+               
+
                
         <button type="submit">Save</button>
-        <button style={{backgroundColor:"red"}}>End Plant Life</button>
+        <button style={{backgroundColor:"red"}}>End Plant Life(later)</button>
              </form>
         </div>
     )

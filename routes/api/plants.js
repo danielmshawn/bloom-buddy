@@ -19,7 +19,7 @@ router.post('/', ensureLoggedIn, plantsCtrl.create);
 // POST /api/plants/:id/user
 router.post('/:id/user', ensureLoggedIn, plantsCtrl.addToUser);
 
-// PUT /api/plants/user/:userPlantId
-router.put('/user/:userPlantId', ensureLoggedIn, plantsCtrl.updateUserPlant)
+// // PUT /api/plants/user/:userPlantId
+// router.put('/user/:userPlantId', ensureLoggedIn, plantsCtrl.updateUserPlant)
 
 module.exports = router;
