@@ -7,7 +7,7 @@ import EditPlantForm from "../../components/EditPlantForm/EditPlantForm"
 
 
 
-export default function PlantDetailPage({ myPlants }) {
+export default function PlantDetailPage({ myPlants, setMyPlants }) {
 
 
     const { userPlantID } = useParams();
@@ -17,15 +17,15 @@ export default function PlantDetailPage({ myPlants }) {
     const [showUserPlantForm, setShowUserPlantForm] = useState(false)
     const [userPlants, setUserPlants] = useState([]);
 
-    async function updateUserPlant(userPlantData) {
+    async function updateUserPlant(userPlantId, userPlantData) {
         const updatedData = {
             seeds: userPlantData.seeds,
             datesHarvested: userPlantData.datesHarvested
         }
-        console.log(userPlantData);
+        console.log(userPlantData, "Line 25 userPlantData");
         const userPlant = await userPlantsAPI.updateUserPlant(userPlantID, updatedData);
         // console.log(userPlant);
-        setUserPlants([userPlant]);
+        setMyPlants([userPlant]);
       }
 
     return (

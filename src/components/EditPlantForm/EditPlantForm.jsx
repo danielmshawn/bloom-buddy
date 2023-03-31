@@ -18,6 +18,7 @@ function handleChange(evt) {
 function handleSubmit(evt) {
     evt.preventDefault();
     updateUserPlant(userPlantID, updatedUserPlant);
+    
     // console.log(updatedUserPlant);
 }
 

@@ -22,7 +22,7 @@ const userPlantSchema = new Schema ({
     },
     datePlanted: {
         type: Date,
-        required: true,
+        // required: true,
         default: function() {
             return new Date();
         }

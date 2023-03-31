@@ -8,9 +8,12 @@ async function update(req, res) {
     try {
         const userPlantId = req.params.userPlantId;
         const seeds = req.body.seeds;
-        const datesHarvested = req.body.datesHarvested;
+        let datesHarvested = req.body.datesHarvested;
         const updateFields = {}
         // console.log(userPlantId)
+        if (!Array.isArray(datesHarvested)) {
+            datesHarvested = [datesHarvested]
+        }
         if (seeds) {
             updateFields.seeds = seeds;
         } if (datesHarvested) {
@@ -22,7 +25,7 @@ async function update(req, res) {
             { new: true }
         )
         console.log(req.body)
-        if (!updatedUserPlant) {
+        if (!updatedUserPlant) { 
             return res.status(400).json({message: "UserPlant not found"})
         }
     } catch(err) {
