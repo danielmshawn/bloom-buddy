@@ -24,7 +24,7 @@ export default function PlantDetailPage({ myPlants }) {
             seeds: userPlantData.seeds,
             datesHarvested: userPlantData.datesHarvested
         }
-        const userPlant = await userPlantsAPI.updateUserPlant(userPlantData._id, updatedData);
+        const userPlant = await userPlantsAPI.updateUserPlant(userPlantID, updatedData);
         setUserPlants([userPlant]);
       }
 
@@ -44,7 +44,7 @@ export default function PlantDetailPage({ myPlants }) {
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
         </div>
         { showUserPlantForm && (
-            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} />
+            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantID={userPlantID} />
         )}
         
 

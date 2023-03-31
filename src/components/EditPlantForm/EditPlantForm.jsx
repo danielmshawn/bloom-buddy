@@ -3,11 +3,11 @@ import { useState, useEffect } from "react"
 import * as plantsAPI from "../../utilities/plants-api"
 
 
-export default function EditPlantForm({ plant, updateUserPlant }) {
+export default function EditPlantForm({ plant, updateUserPlant, userPlantID }) {
 
 const [updatedUserPlant, setUpdatedUserPlant] = useState({
-    seeds: plant.seeds,
-    datesHarvested: plant.datesHarvested
+    seeds: "",
+    datesHarvested: []
 })
 
 function handleChange(evt) {
@@ -17,7 +17,7 @@ function handleChange(evt) {
 
 function handleSubmit(evt) {
     evt.preventDefault();
-    updateUserPlant(updatedUserPlant);
+    updateUserPlant(userPlantID, updatedUserPlant);
 }
 
     return(

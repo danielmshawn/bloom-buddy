@@ -5,7 +5,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // All paths start eith '/api'
 
-router.put("/userplants/:id", ensureLoggedIn, userPlantsCtrl.update);
-
+router.put("/api/userplants/:id", ensureLoggedIn, userPlantsCtrl.update);
 
 module.exports = router;
