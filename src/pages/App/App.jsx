@@ -34,7 +34,7 @@ export default function App() {
         <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/mygarden" element={<MyGardenPage myPlants={myPlants} setMyPlants={setMyPlants} />} />
+              <Route path="/mygarden" element={<MyGardenPage myPlants={myPlants} setMyPlants={setMyPlants} user={user} />} />
               <Route path="/plants/new" element={<NewPlantPage plants={plants} setPlants={setPlants}/>} />
               <Route path="/plants/:userPlantID" element={<PlantDetailPage myPlants={myPlants} />} />
               <Route path="/growing" element={<GrowingPage />} />

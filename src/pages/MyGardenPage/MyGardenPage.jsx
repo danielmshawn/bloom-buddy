@@ -5,7 +5,7 @@ import * as plantsAPI from '../../utilities/plants-api'
 import PlantCard from '../../components/PlantCard/PlantCard'
 
 
-export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
+export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user}) {
 
   const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
@@ -26,7 +26,6 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
   async function addToUser() {
     const updatedMyPlants =  await plantsAPI.addToUser(selectedAvailablePlantId);
     setMyPlants(updatedMyPlants);
-    console.log("My Plants here:", myPlants);
   }
 
   const plantList = myPlants.map((plant) => (
@@ -48,8 +47,8 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants }) {
       <hr></hr>
       <hr></hr>
       <hr></hr>
-      <iframe width="600" height="450" style={{border: "0"}} loading="lazy" allowFullScreen
-src="https://www.google.com/maps/embed/v1/place?q=47.6205,+-122.3493&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek"></iframe>
+      <iframe width="600" height="450" style={{border: "1"}} loading="lazy" allowFullScreen
+src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
     </>
   );
 }
