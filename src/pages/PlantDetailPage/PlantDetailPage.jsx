@@ -12,19 +12,19 @@ export default function PlantDetailPage({ myPlants }) {
 
     const { userPlantID } = useParams();
     const plant = myPlants.find((p) => p._id === userPlantID)
+    
 
     const [showUserPlantForm, setShowUserPlantForm] = useState(false)
-    const [userPlants, setUserPlants] = useState({
-        seeds: "",
-        harvestDate: []
-    });
+    const [userPlants, setUserPlants] = useState([]);
 
     async function updateUserPlant(userPlantData) {
         const updatedData = {
             seeds: userPlantData.seeds,
             datesHarvested: userPlantData.datesHarvested
         }
+        console.log(userPlantData);
         const userPlant = await userPlantsAPI.updateUserPlant(userPlantID, updatedData);
+        // console.log(userPlant);
         setUserPlants([userPlant]);
       }
 
@@ -32,7 +32,8 @@ export default function PlantDetailPage({ myPlants }) {
 
     <div className="userPlantDetails">
         <div>
-            <h1>{plant.plant.name}</h1>
+            { console.log(plant) } 
+                        <h1>{plant.plant.name}</h1>
             <h3>{plant.plant.variety}</h3>
             <p>Seeds: {plant.seeds}</p>
             <p>Date Planted: {plant.datePlanted}</p>

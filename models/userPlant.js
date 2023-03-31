@@ -16,14 +16,16 @@ const userPlantSchema = new Schema ({
         required: true
     }, 
     plant: plantSchema,
-    seeds: String,
+    seeds: {
+        type: String,
+        default: ""
+    },
     datePlanted: {
         type: Date,
         required: true,
         default: function() {
             return new Date();
         }
-    
     },
     datesHarvested: [Date],
     endDate: Date,

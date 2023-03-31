@@ -12,12 +12,13 @@ const [updatedUserPlant, setUpdatedUserPlant] = useState({
 
 function handleChange(evt) {
     setUpdatedUserPlant({...updatedUserPlant, [evt.target.name]: evt.target.value})
-
+    // console.log(updatedUserPlant);
 }
 
 function handleSubmit(evt) {
     evt.preventDefault();
     updateUserPlant(userPlantID, updatedUserPlant);
+    // console.log(updatedUserPlant);
 }
 
     return(
@@ -27,7 +28,7 @@ function handleSubmit(evt) {
                 <label>Seed: </label>
                 <input type="text" name="seeds" value={updatedUserPlant.seeds} onChange={handleChange} placeholder="Where Did You Get Your Seeds?" />
                 <label>Date Harvested</label>
-                <input type="date" name="datesHarvested" value={updatedUserPlant.harvestDates} onChange={handleChange} />
+                <input type="date" name="datesHarvested" value={updatedUserPlant.datesHarvested} onChange={handleChange} />
                 <button type="submit">Save</button>
             </form>
 
