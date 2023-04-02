@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import * as plantsAPI from '../../utilities/plants-api'
 import PlantCard from '../../components/PlantCard/PlantCard'
 
+import "./MyGardenPage.css"
+
 
 export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user}) {
 
@@ -35,7 +37,16 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
   return (
     <>
       <h1>My Garden</h1>
+      <div className="my-garden-location">
+      <iframe loading="lazy" allowFullScreen
+src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
+      </div>
+      <hr></hr>
+      <hr></hr>
+      <hr></hr>
+      <div className="cards-container">
       <div>{plantList}</div>
+      </div>
 
       <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
         { !availablePlants.length && <option value="">-- No Available Plants --</option>}
@@ -44,11 +55,6 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
       <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
       &nbsp; | &nbsp;
       <Link className="button" to="/plants/new"> Create A New Plant </Link> 
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <iframe width="600" height="450" style={{border: "1"}} loading="lazy" allowFullScreen
-src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
     </>
   );
 }

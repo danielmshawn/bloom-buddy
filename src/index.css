@@ -1,7 +1,8 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --white-background: #FCF6F5FF;
+  /* --white-background: #FCF6F5FF; */
+  --white-background: #F5F5F5;
   --green-1: #2BAE66FF;
   --green-2: #B9FBC0;
   --tan-1: #FBF9F6;
@@ -10,8 +11,11 @@
   --tan-4: #D3C1AE;
   --orange: #F67F00;
   --text-light: #968c84;
-  --text-dark: #615954;
+  /* --text-dark: #615954; */
+  --text-dark: #333333;
 }
+
+
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -28,6 +32,13 @@ body {
   padding: 2vmin;
   height: 100vh;
 }
+
+.flowerPowerFont {
+  font-family: flower-power, sans-serif;
+font-weight: 500;
+font-style: normal;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

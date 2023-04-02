@@ -6,7 +6,7 @@ module.exports = {
 
 async function update(req, res) {
     try {
-        const userPlantId = req.params.userPlantId;
+        const userPlantId = req.params.id;
         const seeds = req.body.seeds;
         let datesHarvested = req.body.datesHarvested;
         const updateFields = {}
@@ -24,17 +24,13 @@ async function update(req, res) {
             updateFields,
             { new: true }
         )
-        console.log(req.body)
-        if (!updatedUserPlant) { 
-            return res.status(400).json({message: "UserPlant not found"})
-        }
+        res.status(200).json(updatedUserPlant);
+        // if (!updatedUserPlant) { 
+        //     return res.status(400).json({message: "UserPlant not found"})
+        // }
     } catch(err) {
         console.log(err);
         res.status(400).json(err);
     }
 }
-
-
-
-// seeds
-//   
+ 

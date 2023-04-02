@@ -1,11 +1,18 @@
+import "./WelcomePage.css"
+
 export default function WelcomePage() {
 
 
     return (
         <div>
-        <h1>BloomBuddy</h1>
+            <div className="brand">
+                <img className="tomato-icon" src={require('./tomato-icon.png')} />
+                <h1 className="flowerPowerFont" id="bloom-buddy-title">BloomBuddy</h1>
+            </div>
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Welcome to BloomBuddy! <br></br><br></br>
+
+BloomBuddy is your go-to gardening companion, designed to help you cultivate your green thumb and connect with fellow plant enthusiasts in your area. Keep track of your gardening progress, discover plants thriving nearby, and exchange valuable insights with the community. Join us and watch your garden flourish!
         </p>
         </div>
     )

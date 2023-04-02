@@ -1,0 +1,25 @@
+.my-garden-location{
+    /* margin: auto; */
+    
+    position: relative;
+    width: 600px;
+    height: 450px;
+    border: 10px solid #8B4513;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* background-image: url("path/to/your/garden-image.jpg"); */
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  

@@ -28,6 +28,10 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
         setMyPlants([userPlant]);
       }
 
+    //   const harvestDateList = plant.datesHarvested((datet) => (
+        
+    //   ));
+
     return (
 
     <div className="userPlantDetails">
@@ -38,10 +42,13 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
             <p>Seeds: {plant.seeds}</p>
             <p>Date Planted: {plant.datePlanted}</p>
             
-            <ul>Date(s) Harvested
-                <li>Dates go here</li>
-                <li>Dates go here</li>
+            <ul>
+                Date(s) Harvested:
+                {plant.datesHarvested.map((date, index) => (
+                    <li key={index}>{date}</li>
+                ))}
             </ul>
+
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
         </div>
         { showUserPlantForm && (
