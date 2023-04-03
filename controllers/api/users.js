@@ -52,8 +52,11 @@ async function getNearbyUsers(req,res) {
           coordinates: currentUser.location.coordinates
         },
         $maxDistance: maxDistance
-      }
+      },
+      _id: {$ne: currentUser._id}
     });
+    
+
     res.json(nearbyUsers);
   } catch (err) {
     res.status(400).json(err);
