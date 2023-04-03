@@ -1,15 +1,20 @@
 /* General card style */
-.card {
+.plant-card {
   width: 300px;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #A0DAA9;
   margin: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Typography */
-.card-title {
+.plant-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.plant-card-title {
   font-family: new-spirit, serif;
   font-style: normal;
   font-weight: 600;
@@ -18,35 +23,35 @@
   margin-bottom: 10px;
 }
 
-.card-subtitle {
+.plant-card-subtitle {
   font-size: 18px;
   color: #777;
   margin-bottom: 10px;
 }
 
-.card-text {
+.plant-card-text {
   font-size: 14px;
   color: #555;
   line-height: 1.5;
 }
 
 /* Accent color for the image container */
-.card-image {
-  background-color: #A0DAA9;
+.plant-card-image {
+  background-color: brown;
   width: 100%;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: solid 2px brown;
+  /* border-bottom: solid 2px brown;
   border-right: solid 2px brown;
-  border-left: solid 2px brown;
+  border-left: solid 2px brown; */
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
 /* Image styling */
-.card-image img {
+.plant-card-image img {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;

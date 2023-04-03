@@ -21,13 +21,6 @@ export default class SignUpForm extends Component {
   latitude = undefined;
   longitude = undefined;
 
-  // useEffect
-    //What the heck do I put here to take this use navigator object
-    // and take the lat and add it to user.userLatitude and user.userLongitude?
-    // It seems navigator only returns undefined, yet has a "success" object that is
-    // passed through the callback function. How do I get access to that?
-    // Promises? 
-    
 
   handleChange = (evt) => {
     this.setState({

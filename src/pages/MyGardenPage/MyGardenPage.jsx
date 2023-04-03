@@ -18,7 +18,7 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
       setAvailablePlants(plants);
     }
     getAvailablePlants();
-  }, []);
+  }, [user, myPlants]);
  
   useEffect(function() {
     if (!availablePlants.length) return;
@@ -41,9 +41,7 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
       <iframe loading="lazy" allowFullScreen
 src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
       </div>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
+      
       <div className="cards-container">
       <div>{plantList}</div>
       </div>
