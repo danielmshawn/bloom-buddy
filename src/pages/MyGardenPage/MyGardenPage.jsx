@@ -44,12 +44,15 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
           src={`https://www.google.com/maps/embed/v1/place?q=${latitude},+${longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}
         />
       </div>
-      <hr />
-      <div>
+      <div className="my-garden-background">
         <h1 className="flowerPowerFont">My Garden</h1>
         <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
           { !availablePlants.length && <option value="">-- No Available Plants --</option>}
-          { availablePlants.map(p => <option value={p._id} key={p._id} >{p.name} -- Variety:{p.variety}</option>) }
+          { availablePlants.map(p =>( 
+          <option value={p._id} key={p._id}>
+          {p.name} {p.variety !== "" ? `-- ${p.variety}` : ""}
+          </option>)
+          )}
         </select>
         <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
         &nbsp; | &nbsp;
