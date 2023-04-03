@@ -1,7 +1,8 @@
 const UserPlant = require('../../models/userPlant');
 
 module.exports = {
-    update
+    update,
+    deleteUserPlant
 }
 
 async function update(req, res) {
@@ -10,7 +11,6 @@ async function update(req, res) {
         const seeds = req.body.seeds;
         let datesHarvested = req.body.datesHarvested;
         const updateFields = {}
-        // console.log(userPlantId)
         if (!Array.isArray(datesHarvested)) {
             datesHarvested = [datesHarvested]
         }
@@ -34,3 +34,12 @@ async function update(req, res) {
     }
 }
  
+
+async function deleteUserPlant(req, res) {
+    const userPlantId = req.params.id
+    try {
+        await UserPlant.findOneAndDelete({_id: userPlantId, user: req.user._id});
+    } catch(err) {
+        res.status(400).json(err);
+    }
+}

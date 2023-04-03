@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 
-import * as plantsAPI from "../../utilities/plants-api"
+// import * as plantsAPI from "../../utilities/plants-api"
 
 
-export default function EditPlantForm({ plant, updateUserPlant, userPlantID }) {
+export default function EditPlantForm({ plant, updateUserPlant, userPlantId }) {
 
 const [updatedUserPlant, setUpdatedUserPlant] = useState({
     seeds: "",
@@ -17,7 +17,7 @@ function handleChange(evt) {
 
 function handleSubmit(evt) {
     evt.preventDefault();
-    updateUserPlant(userPlantID, updatedUserPlant);
+    updateUserPlant(userPlantId, updatedUserPlant);
     
     // console.log(updatedUserPlant);
 }

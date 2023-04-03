@@ -1,21 +1,21 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 import * as userPlantsAPI from '../../utilities/userPlants-api'
 
 import EditPlantForm from "../../components/EditPlantForm/EditPlantForm"
 
 
-
 export default function PlantDetailPage({ myPlants, setMyPlants }) {
 
 
-    const { userPlantID } = useParams();
-    const plant = myPlants.find((p) => p._id === userPlantID)
+    const { userPlantId } = useParams();
+    const plant = myPlants.find((p) => p._id === userPlantId)
     
 
     const [showUserPlantForm, setShowUserPlantForm] = useState(false)
-    const [userPlants, setUserPlants] = useState([]);
+
+    const navigate = useNavigate();
 
     async function updateUserPlant(userPlantId, userPlantData) {
         const updatedData = {
@@ -23,14 +23,18 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
             datesHarvested: userPlantData.datesHarvested
         }
         console.log(userPlantData, "Line 25 userPlantData");
-        const userPlant = await userPlantsAPI.updateUserPlant(userPlantID, updatedData);
-        // console.log(userPlant);
+        const userPlant = await userPlantsAPI.updateUserPlant(userPlantId, updatedData);
+    
         setMyPlants([userPlant]);
-      }
+    }
 
-    //   const harvestDateList = plant.datesHarvested((datet) => (
-        
-    //   ));
+    async function deleteUserPlant(userPlantId) {
+        await userPlantsAPI.deleteUserPlant(userPlantId);
+        const updatedMyPlants = myPlants.filter((p) => p._id !== userPlantId);
+        setMyPlants(updatedMyPlants);
+       
+        navigate("/mygarden");
+    }
 
     return (
 
@@ -52,9 +56,10 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
         </div>
         { showUserPlantForm && (
-            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantID={userPlantID} />
-        )}
-        
+            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantId={userPlantId} />
+        )};
+
+        <button onClick={() => deleteUserPlant(userPlantId)}>DELETE Plant</button>
 
 
     </div>

@@ -36,7 +36,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/mygarden" element={<MyGardenPage myPlants={myPlants} setMyPlants={setMyPlants} user={user} />} />
               <Route path="/plants/new" element={<NewPlantPage plants={plants} setPlants={setPlants}/>} />
-              <Route path="/plants/:userPlantID" element={<PlantDetailPage myPlants={myPlants} setMyPlants={setMyPlants} />} />
+              <Route path="/plants/:userPlantId" element={<PlantDetailPage myPlants={myPlants} setMyPlants={setMyPlants} />} />
               <Route path="/growing" element={<GrowingPage />} />
               <Route path="*" element={<Navigate to="/mygarden" />} />
             </Routes>
