@@ -36,11 +36,11 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
     
   return (
     <>
-      <h1>My Garden</h1>
       <div className="my-garden-location">
       <iframe loading="lazy" allowFullScreen
 src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
       </div>
+<h1 className="flowerPowerFont">My Garden</h1>
       
       <div className="cards-container">
       <div>{plantList}</div>

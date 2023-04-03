@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, useNavigat, Navigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import * as userPlantsAPI from '../../utilities/userPlants-api'
 
@@ -12,10 +12,9 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
     const { userPlantId } = useParams();
     const plant = myPlants.find((p) => p._id === userPlantId)
     
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     
     const [showUserPlantForm, setShowUserPlantForm] = useState(false);
-    const [redirectToGarden, setRedirectToGarden] = useState(false);
       
 
     async function updateUserPlant(userPlantId, userPlantData) {
@@ -34,13 +33,10 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
         await userPlantsAPI.deleteUserPlant(userPlantId);
         const updatedMyPlants = myPlants.filter((p) => p._id !== userPlantId);
         setMyPlants(updatedMyPlants);
-        setRedirectToGarden(true);
-        // navigate("/mygarden")
+        navigate("/mygarden");
     }
     
-    if (redirectToGarden) {
-        return <Navigate to="/mygarden" />;
-      }
+   
 
     return (
         
