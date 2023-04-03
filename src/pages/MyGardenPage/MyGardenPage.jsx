@@ -39,22 +39,26 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
   return (
     <>
       <div className="my-garden-location">
-      <iframe loading="lazy" allowFullScreen
-src={`https://www.google.com/maps/embed/v1/place?q=${latitude},+${longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
+        <iframe
+          loading="lazy" 
+          src={`https://www.google.com/maps/embed/v1/place?q=${latitude},+${longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}
+        />
       </div>
-<h1 className="flowerPowerFont">My Garden</h1>
-      
-      <div className="cards-container">
-      <div>{plantList}</div>
-      </div>
+      <hr />
+      <div>
+        <h1 className="flowerPowerFont">My Garden</h1>
+        <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
+          { !availablePlants.length && <option value="">-- No Available Plants --</option>}
+          { availablePlants.map(p => <option value={p._id} key={p._id} >{p.name} -- Variety:{p.variety}</option>) }
+        </select>
+        <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
+        &nbsp; | &nbsp;
+        <Link className="button" to="/plants/new"> Create A New Plant </Link>
+        <div className="cards-container">
+          {plantList}
+        </div>
 
-      <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
-        { !availablePlants.length && <option value="">-- No Available Plants --</option>}
-        { availablePlants.map(p => <option value={p._id} key={p._id} >{p.name} -- Variety:{p.variety}</option>) }
-      </select>
-      <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
-      &nbsp; | &nbsp;
-      <Link className="button" to="/plants/new"> Create A New Plant </Link> 
+      </div>
     </>
   );
 }
