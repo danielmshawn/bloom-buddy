@@ -10,4 +10,8 @@ router.post('/', usersCtrl.create);
 // POST /api/users/login
 router.post('/login', usersCtrl.login);
 
+
+// GET /api/users/
+router.get('/nearby-users', ensureLoggedIn, usersCtrl.getNearbyUsers);
+
 module.exports = router;

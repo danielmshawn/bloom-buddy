@@ -9,3 +9,6 @@ export async function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
 
+export async function nearbyUsers(userId) {
+  return sendRequest(`${BASE_URL}/nearby-users`, userId);
+}

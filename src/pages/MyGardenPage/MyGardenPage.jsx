@@ -11,6 +11,8 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
 
   const [selectedAvailablePlantId, setSelectedAvailablePlantId] = useState(null);
   const [availablePlants, setAvailablePlants] = useState([]);
+  const latitude = user.location.coordinates[1];
+  const longitude = user.location.coordinates[0];
 
   useEffect(function() {
     async function getAvailablePlants() {
@@ -38,7 +40,7 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
     <>
       <div className="my-garden-location">
       <iframe loading="lazy" allowFullScreen
-src={`https://www.google.com/maps/embed/v1/place?q=${user.latitude},+${user.longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
+src={`https://www.google.com/maps/embed/v1/place?q=${latitude},+${longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}></iframe>
       </div>
 <h1 className="flowerPowerFont">My Garden</h1>
       

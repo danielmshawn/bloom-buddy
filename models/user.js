@@ -18,8 +18,19 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  latitude: Number,
-  longitude: Number,
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      // required: true Prob not. Just render no location sorry
+    },
+    coordinates: {
+      type: [Number],
+      // required: true
+    },
+  }
+  // latitude: Number, Lets try a GeoJSON object above and see if it works.
+  // longitude: Number,
 }, {
   timestamps: true,
   toJSON: {
@@ -36,5 +47,10 @@ userSchema.pre('save', async function(next) {
   // Replace the password with the computed hash
   this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
 });
+
+// Creating a 2dsphere index per the mongo docs: 
+// https://www.mongodb.com/docs/manual/geospatial-queries/
+
+userSchema.index({ location: '2dsphere'});
 
 module.exports = mongoose.model('User', userSchema);

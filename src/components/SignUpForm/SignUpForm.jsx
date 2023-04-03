@@ -36,7 +36,15 @@ export default class SignUpForm extends Component {
     console.log(this.latitude, this.longitude)
     try {
       const {name, email, password} = this.state;
-      const formData = {name, email, password, latitude: this.latitude, longitude: this.longitude};
+      const formData = {
+        name,
+        email,
+        password,
+        location: {
+          type: "Point",
+          coordinates: [this.longitude, this.latitude]
+        }
+      };
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)

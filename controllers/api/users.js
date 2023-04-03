@@ -5,15 +5,15 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
+  getNearbyUsers
 };
 
 
 async function create(req, res) {
   try {
     // Add the user to the db
-    if (!req.body.latitude) {
-      delete req.body.latitude;
-      delete req.body.longitude;
+    if (!req.body.location || !req.body.location.coordinates) {
+      delete req.body.location;
     }
     const user = await User.create(req.body);
     const token = createJWT(user);
@@ -33,6 +33,30 @@ async function login(req, res) {
     res.json(token);
   } catch (err) {
     res.status(400).json('Bad Credentials');
+  }
+}
+
+// GeoJSON 2dSphere Query using $near. Putting here for now, as
+// I don't believe this needs a seperate module
+// Since I'm working with the User models still
+
+async function getNearbyUsers(req,res) {
+  try {
+    const currentUser = await User.findById(req.user._id);
+    const maxDistance = 500000;
+
+    const nearbyUsers = await User.find({
+      location: {
+        $near: {
+          type: "Point",
+          coordinates: currentUser.location.coordinates
+        },
+        $maxDistance: maxDistance
+      }
+    });
+    res.json(nearbyUsers);
+  } catch (err) {
+    res.status(400).json(err);
   }
 }
 
