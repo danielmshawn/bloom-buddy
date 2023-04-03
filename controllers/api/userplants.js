@@ -38,7 +38,8 @@ async function update(req, res) {
 async function deleteUserPlant(req, res) {
     const userPlantId = req.params.id
     try {
-        await UserPlant.findOneAndDelete({_id: userPlantId, user: req.user._id});
+       const removeUserPlant = await UserPlant.findOneAndDelete({_id: userPlantId, user: req.user._id});
+       res.json(removeUserPlant);
     } catch(err) {
         res.status(400).json(err);
     }
