@@ -5,6 +5,8 @@ import * as userPlantsAPI from '../../utilities/userPlants-api'
 
 import EditPlantForm from "../../components/EditPlantForm/EditPlantForm"
 
+import "./PlantDetailPage.css"
+
 
 export default function PlantDetailPage({ myPlants, setMyPlants }) {
 
@@ -44,26 +46,31 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
 
     <div className="userPlantDetails">
         <div>
-            { console.log(plant) } 
-                        <h1>{plant.plant.name}</h1>
-            <h3>{plant.plant.variety}</h3>
+            <h1>{plant.plant.name}</h1>
+            <h2>{plant.plant.variety}</h2>
+            <hr/>
+            
             <p>Seeds: {plant.seeds}</p>
             <p>Date Planted: {plant.datePlanted}</p>
             
+            { plant.datesHarvested.length ?
             <ul>
                 Date(s) Harvested:
                 {plant.datesHarvested.map((date, index) => (
                     <li key={index}>{date}</li>
                 ))}
             </ul>
+            :
+            <p> No dates harvested yet</p>
+                }
 
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
         </div>
         { showUserPlantForm && (
-            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantId={userPlantId} />
-        )};
+            <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantId={userPlantId} setShowUserPlantForm={setShowUserPlantForm}/>
+        )}
 
-        <button onClick={() => deleteUserPlant(userPlantId)}>DELETE Plant</button>
+        <button style={{backgroundColor: "red"}}onClick={() => deleteUserPlant(userPlantId)}>DELETE Plant</button>
 
 
     </div>
