@@ -45,7 +45,7 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
         />
       </div>
       
-      <h1 className="flowerPowerFont">My Garden</h1>
+      <h1 className="flower-power-font">My Garden</h1>
 
       <div className="plant-form">
         <div className="add-plant">

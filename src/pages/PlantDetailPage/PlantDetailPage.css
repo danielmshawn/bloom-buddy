@@ -10,3 +10,61 @@ h2 {
     font-weight: 600;
 }
 
+.plant-details-card {
+    width: 50%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #A0DAA9;
+    margin: 20px auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .plant-details-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .plant-details-card h1 {
+    font-family: new-spirit, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .plant-details-card h2 {
+    font-size: 18px;
+    color: #d71b1b;
+    margin-bottom: 10px;
+  }
+  
+  .plant-details-card hr {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .plant-details-card p {
+    font-family: bilo, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .plant-details-card ul {
+    font-family: bilo, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .plant-details-card ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  

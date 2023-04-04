@@ -41,39 +41,37 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
    
 
     return (
-        
-          
+      
 
-    <div className="userPlantDetails">
-        <div>
-            <h1>{plant.plant.name}</h1>
-            <h2>{plant.plant.variety}</h2>
-            <hr/>
-            
-            { plant.seeds === "" ? 
-            <p>Click "Edit/Upate" to Add Seeds</p>
-            :
-            <p>Seeds: {plant.seeds}</p> }
+        <>
 
-
-            <p>Date Planted: {new Date(plant.datePlanted).toLocaleDateString()} </p>
-            
-            { plant.datesHarvested.length ?
-            <ul>
-                Date(s) Harvested:
-                {plant.datesHarvested.map((date, index) => (
-                    <li key={index}>{date}</li>
-                ))}
-            </ul>
-            :
-            <p> No Dates Harvested Yet!
-                <br/>
-                Click "Edit/Update" to add a Harvest Date
-            </p>
-                }
+            <div className="plant-details-card">
+                <h1>{plant.plant.name}</h1>
+                <h2>{plant.plant.variety}</h2>
+                <hr />
+                {plant.seeds === "" ? (
+                    <p>Click "Edit/Update" to Add Seeds</p>
+                ) : (
+                    <p>Seeds: {plant.seeds}</p>
+                )}
+                <p>Date Planted: {new Date(plant.datePlanted).toLocaleDateString()}</p>
+                {plant.datesHarvested.length ? (
+                    <ul>
+                        Date(s) Harvested:
+                        {plant.datesHarvested.map((date, index) => (
+                            <li key={index}>{new Date(date).toLocaleDateString()}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>
+                        No Dates Harvested Yet!
+                        <br />
+                        Click "Edit/Update" to add a Harvest Date
+                    </p>
+                )}
+        </div>
 
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
-        </div>
         { showUserPlantForm && (
             <EditPlantForm plant={plant} updateUserPlant={updateUserPlant} userPlantId={userPlantId} setShowUserPlantForm={setShowUserPlantForm}/>
         )}
@@ -81,7 +79,7 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
         <button style={{backgroundColor: "red"}}onClick={() => deleteUserPlant(userPlantId)}>DELETE Plant</button>
 
 
-    </div>
+   </>
 
     )
 }

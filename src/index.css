@@ -1,21 +1,13 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  /* --white-background: #FCF6F5FF; */
   --white-background: #F5F5F5;
   --green-1: #4f7c3c;
-  --green-2: #B9FBC0;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
+  --green-2: #a0daa9;
   --orange: #F67F00;
   --text-light: #968c84;
-  /* --text-dark: #615954; */
   --text-dark: #333333;
 }
-
-
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -33,14 +25,14 @@ body {
   height: 100vh;
 }
 
-.flowerPowerFont {
+.flower-power-font {
   font-family: flower-power, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 /* https://fonts.adobe.com/fonts/new-spirit#details-section+new-spirit-regular */
-.newSpiritFont {
+.new-spirit-font {
   font-family: new-spirit, serif;
   font-style: normal;
   font-weight: 500;
@@ -52,6 +44,23 @@ body {
   font-weight: 300;
 }
 
+.goudy-font {
+  font-family: goudy-bookletter-1911, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.bilo-light-font {
+  font-family: bilo, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.bilo-med-font {
+  font-family: bilo, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -92,24 +101,16 @@ code {
   overflow-y: scroll;
 }
 
-.section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: .6vmin;
-  text-align: center;
-  font-size: 2vmin;
-}
-
 .form-container {
+  width: 50%;
+  margin: auto;
   padding: 3vmin;
   background-color: var(--green-2);
   border: .1vmin solid black;
   border-radius: 1vmin;
+  font-family: bilo, sans-serif;
+  font-style: normal;
+  font-weight: 600;
 }
 
 p.error-message {
@@ -123,6 +124,9 @@ form {
   gap: 1.25vmin;
   color: var(--text-light);
   color: black;
+  font-family: bilo, sans-serif;
+  font-style: normal;
+  font-weight: 600;
 }
 
 label {
@@ -134,7 +138,7 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid black;;
   border-radius: .5vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
@@ -151,7 +155,9 @@ button, a.button {
   color: var(--white);
   background-color: var(--green-1);
   font-size: 2vmin;
-  font-weight: bold;
+  font-family: bilo, sans-serif;
+  font-style: normal;
+  font-weight: 600;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid black;
@@ -175,7 +181,7 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: lightgrey;
 }
 
 button[type="submit"] {
