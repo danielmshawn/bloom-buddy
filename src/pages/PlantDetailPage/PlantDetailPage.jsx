@@ -56,7 +56,7 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
             <p>Seeds: {plant.seeds}</p> }
 
 
-            <p>Date Planted: {plant.datePlanted}</p>
+            <p>Date Planted: {new Date(plant.datePlanted).toLocaleDateString()} </p>
             
             { plant.datesHarvested.length ?
             <ul>

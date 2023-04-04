@@ -39,6 +39,19 @@ body {
   font-style: normal;
 }
 
+/* https://fonts.adobe.com/fonts/new-spirit#details-section+new-spirit-regular */
+.newSpiritFont {
+  font-family: new-spirit, serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.newSpiritFontLight {
+  font-family: new-spirit, serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
