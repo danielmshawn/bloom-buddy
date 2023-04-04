@@ -44,24 +44,29 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
           src={`https://www.google.com/maps/embed/v1/place?q=${latitude},+${longitude}&key=AIzaSyCpvZzB15LTJzCdVjVT6NkQYkIp0hvPIek`}
         />
       </div>
-      <div className="my-garden-background">
-        <h1 className="flowerPowerFont">My Garden</h1>
-        <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
-          { !availablePlants.length && <option value="">-- No Available Plants --</option>}
-          { availablePlants.map(p =>( 
-          <option value={p._id} key={p._id}>
-          {p.name} {p.variety !== "" ? `-- ${p.variety}` : ""}
-          </option>)
-          )}
-        </select>
-        <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
-        &nbsp; | &nbsp;
-        <Link className="button" to="/plants/new"> Create A New Plant </Link>
-        <div className="cards-container">
-          {plantList}
-        </div>
+      
+      <h1 className="flowerPowerFont">My Garden</h1>
 
+      <div className="plant-form">
+        <div className="add-plant">
+          <select className="select" value={selectedAvailablePlantId} onChange={(evt) => setSelectedAvailablePlantId(evt.target.value) }  >
+            { !availablePlants.length && <option value="">-- No Available Plants --</option>}
+            { availablePlants.map(p =>( 
+            <option value={p._id} key={p._id}>
+            {p.name} {p.variety !== "" ? `-- ${p.variety}` : ""}
+            </option>)
+            )}
+          </select>
+          <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
+        </div>
+        <div className="bar"></div>
+        <Link className="button" to="/plants/new"> Create A New Plant </Link>
       </div>
+      <div className="cards-container">
+        {plantList}
+      </div>
+
+      
     </>
   );
 }

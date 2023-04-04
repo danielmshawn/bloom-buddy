@@ -13,7 +13,13 @@ export default function WelcomePage() {
     <br/>
     <br/>
 <div className="newSpiritFontLight">
-BloomBuddy is your go-to gardening companion, designed to help you cultivate your green thumb and connect with fellow plant enthusiasts in your area. Keep track of your gardening progress, discover plants thriving nearby, and exchange valuable insights with the community. Join us and watch your garden flourish!
+BloomBuddy is your go-to gardening companion, designed to help you cultivate your green thumb and connect with fellow plant enthusiasts in your area.
+Keep track of your gardening progress, discover plants thriving nearby, and exchange valuable insights with the community.
+Join us and watch your garden flourish!
+    <br/>
+    <br/>
+For the best experience, allow BloomBuddy to access your locaiton upon signing up. BloomBuddy will use your location upon signing up for it'slocation-based features.
+
         </div>
         </div>
     )

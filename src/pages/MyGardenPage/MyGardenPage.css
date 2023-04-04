@@ -10,6 +10,7 @@
     background-image: url("./map-patch.png");
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     margin: auto;
 }
 
@@ -25,6 +26,15 @@
 
 h1 {
     font-size: 60px;
+}
+
+.plant-form {
+    display: flex;
+    justify-content:center
+}
+
+.bar {
+    border-left: solid 1px black;
 }
 
 .cards-container {

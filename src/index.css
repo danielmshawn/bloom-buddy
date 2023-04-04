@@ -149,7 +149,6 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  /* background-color: var(--orange); */
   background-color: var(--green-1);
   font-size: 2vmin;
   font-weight: bold;
@@ -160,6 +159,30 @@ button, a.button {
   outline: none;
   cursor: pointer;
 }
+
+/* My go at a button, I think I like above more. Or different colors?
+button, a.button {
+  margin: 1vmin;
+  padding: 1vmin;
+  color: #4D4D4D;
+  background-color: #91C788;
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: 0.2vmin solid #8ABAD3;
+  border-radius: .5vmin; 
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s; 
+}
+
+button:hover, a.button:hover {
+  color: #F5F5F5;
+  background-color: #F0B7A4;
+  border-color: #4D4D4D
+} */
+
 
 button.btn-sm {
   font-size: 1.5vmin;
