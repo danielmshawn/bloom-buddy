@@ -22,15 +22,12 @@ const userSchema = new Schema({
     type: {
       type: String,
       enum: ['Point'],
-      // required: true Prob not. Just render no location sorry
     },
     coordinates: {
       type: [Number],
       // required: true
     },
   }
-  // latitude: Number, Lets try a GeoJSON object above and see if it works.
-  // longitude: Number,
 }, {
   timestamps: true,
   toJSON: {

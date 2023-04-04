@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-// import * as plantsAPI from "../../utilities/plants-api"
 
 
 export default function EditPlantForm({ plant, updateUserPlant, userPlantId, setShowUserPlantForm }) {
@@ -28,7 +27,7 @@ function handleSubmit(evt) {
             <h1>Edit Plant Form</h1>
             <form onSubmit= {handleSubmit}>
                 <label>Seed: </label>
-                <input type="text" name="seeds" value={updatedUserPlant.seeds} onChange={handleChange} placeholder="Where Did You Get Your Seeds?" />
+                <input type="text" autoComplete="off" name="seeds" value={updatedUserPlant.seeds} onChange={handleChange} placeholder="Where Did You Get Your Seeds?" />
                 <label>Date Harvested</label>
                 <input type="date" name="datesHarvested" value={updatedUserPlant.datesHarvested} onChange={handleChange} />
                 <button type="submit">Save</button>

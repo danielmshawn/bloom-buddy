@@ -18,24 +18,23 @@ export default function GrowingPage() {
     }, []);
 
 
-    // Will each link be a plant, or a page to a "user" that shows what's growing?
     return(
         <>
-        <h2>BloomBuddies Closest To You</h2>
-       <table className="user-table">
-            <thead>
-                <tr>
-                    <th>User</th>
-                </tr>
-            </thead>
-            <tbody>
-                {nearbyUsers.map((user) => (
-                    <tr key={user._id}>
-                        <td>{user.name}</td>
+            <h2>BloomBuddies Closest To You</h2>
+            <table className="user-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {nearbyUsers.map((user) => (
+                        <tr key={user._id}>
+                            <td>{user.name}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     )
 }

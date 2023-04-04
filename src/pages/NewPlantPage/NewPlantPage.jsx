@@ -24,7 +24,6 @@ export default function NewPlantPage({ plants, setPlants }) {
         addPlant(newPlant);
         setNewPlant({ name: "", variety: ""})
         navigate('/mygarden')
-        // (IF submission was valid here, add a useNavigate to send back to MyGarden?
     }
 
     function handleChange(evt) {

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { useParams, useNavigate, Navigate } from "react-router-dom"
+import { useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 
 import * as userPlantsAPI from '../../utilities/userPlants-api'
 
@@ -39,12 +39,10 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
     }
     
    
-
     return (
       
 
         <>
-
             <div className="plant-details-card">
                 <h1>{plant.plant.name}</h1>
                 <h2>{plant.plant.variety}</h2>
@@ -77,8 +75,6 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
         )}
 
         <button style={{backgroundColor: "red"}}onClick={() => deleteUserPlant(userPlantId)}>DELETE Plant</button>
-
-
    </>
 
     )

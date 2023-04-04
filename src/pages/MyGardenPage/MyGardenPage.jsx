@@ -66,9 +66,7 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
       </div>
       <div className="cards-container">
         {plantList}
-      </div>
-
-      
+      </div>     
     </>
   );
 }
