@@ -60,7 +60,9 @@ export default function MyGardenPage({getMyPlants, myPlants, setMyPlants, user})
           <button onClick={addToUser} disabled={!availablePlants.length}>Add Plant to Garden</button>
         </div>
         <div className="bar"></div>
-        <Link className="button" to="/plants/new"> Create A New Plant </Link>
+        <div className="create-plant">
+          <Link className="button" to="/plants/new" style={{backgroundColor: "#fa7451"}}> Create A New Plant </Link>
+        </div>
       </div>
       <div className="cards-container">
         {plantList}
