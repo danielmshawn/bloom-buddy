@@ -10,9 +10,7 @@ h2 {
     font-weight: 600;
 }
 
-button {
-    margin: 5vmin;
-}
+
 .plant-details-card {
     width: 50%;
     padding: 20px;
@@ -23,10 +21,10 @@ button {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
-  .plant-details-card:hover {
+  /* .plant-details-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+  } */
   
   .plant-details-card h1 {
     font-family: new-spirit, serif;
