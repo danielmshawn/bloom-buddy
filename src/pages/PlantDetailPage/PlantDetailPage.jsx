@@ -50,7 +50,12 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
             <h2>{plant.plant.variety}</h2>
             <hr/>
             
-            <p>Seeds: {plant.seeds}</p>
+            { plant.seeds === "" ? 
+            <p>Click "Edit/Upate" to Add Seeds</p>
+            :
+            <p>Seeds: {plant.seeds}</p> }
+
+
             <p>Date Planted: {plant.datePlanted}</p>
             
             { plant.datesHarvested.length ?
@@ -61,7 +66,10 @@ export default function PlantDetailPage({ myPlants, setMyPlants }) {
                 ))}
             </ul>
             :
-            <p> No dates harvested yet</p>
+            <p> No Dates Harvested Yet!
+                <br/>
+                Click "Edit/Update" to add a Harvest Date
+            </p>
                 }
 
             <button onClick={() => setShowUserPlantForm(!showUserPlantForm)}>Edit/Update</button>
