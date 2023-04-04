@@ -9,6 +9,7 @@
     color: #ffffff;
     padding: 1vmin;
     text-align: center;
+    border-radius: 15px 15px 0  0
   }
   
   .user-table tbody tr:nth-child(odd) {
