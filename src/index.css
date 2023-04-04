@@ -156,16 +156,12 @@ button, a.button {
   text-align: center;
   border: .1vmin solid black;
   border-radius: .5vmin;
- 
   cursor: pointer;
 }
 
 button:hover, a.button:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 button.btn-sm {
   font-size: 1.5vmin;

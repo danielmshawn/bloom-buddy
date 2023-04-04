@@ -1,0 +1,25 @@
+.user-table {
+    border-collapse: collapse;
+    width: 75%;
+    margin: 5vmin auto;
+  }
+  
+  .user-table thead th {
+    background-color: #4f7c3c; /* Muted light green */
+    color: #ffffff;
+    padding: 1vmin;
+    text-align: center;
+  }
+  
+  .user-table tbody tr:nth-child(odd) {
+    background-color: #f1e0b4; /* Muted light yellow */
+  }
+  
+  .user-table tbody tr:nth-child(even) {
+    background-color: #d6c2e1; /* Muted light purple */
+  }
+  
+  .user-table tbody td {
+    padding: 1vmin;
+  }
+  

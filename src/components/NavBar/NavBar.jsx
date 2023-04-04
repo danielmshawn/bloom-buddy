@@ -19,7 +19,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/plants/new">Create A Plant</Link>
       &nbsp; | &nbsp;
-      <Link to="/growing">What's Growing?</Link>
+      <Link to="/growing">BloomBuddies</Link>
       &nbsp;&nbsp;
       </div>
       <div>

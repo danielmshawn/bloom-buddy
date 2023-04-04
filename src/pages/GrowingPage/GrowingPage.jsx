@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import * as usersAPI from "../../utilities/users-api"
 
+import "./GrowingPage.css"
 
 export default function GrowingPage() {
 
@@ -20,13 +21,21 @@ export default function GrowingPage() {
     // Will each link be a plant, or a page to a "user" that shows what's growing?
     return(
         <>
-        <h1>What's Growing?</h1>
-        <ul>
-            {nearbyUsers.map((user) => (
-                <li key={user._id}>{user.name}</li>
-            ))}
-        </ul>
-
+        <h2>BloomBuddies Closest To You</h2>
+       <table className="user-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {nearbyUsers.map((user) => (
+                    <tr key={user._id}>
+                        <td>{user.name}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
         </>
     )
 }
